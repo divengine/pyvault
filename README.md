@@ -17,6 +17,8 @@
 - Preserves the original folder structure
 - Uses Obsidian `[[wiki-style links]]` for graph connections
 
+![image](https://github.com/user-attachments/assets/3577390b-f482-4854-9304-6e6aec358ef4)
+
 ---
 
 ## 🔧 How to use
