@@ -25,14 +25,16 @@
 
 ```bash
 git clone https://github.com/divengine/pyvault.git
-cd pyvault
 ```
 
 2. Install Python ≥ 3.8
+  
 3. Run the generator:
 
-```
-python generate.py
+```bash
+git clone https://github.com/psf/black.git
+cd pyvault
+python pyvault.py ../black/ ../vault-black/
 ```
 
 The result will appear inside the obsidian_vault/ folder.
