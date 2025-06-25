@@ -240,13 +240,16 @@ def main():
     scan_folder(args.project_path, ctx)
     write_module_and_import_notes(ctx)
 
+    print();
+    print("---------------------------");
     print("\n📊 Scan summary:")
-    print(f"📁 Files scanned:      {ctx['stats']['files']}")
-    print(f"📦 Modules detected:   {ctx['stats']['modules']}")
-    print(f"🏷️  Classes detected:  {ctx['stats']['classes']}")
-    print(f"🔧 Functions detected: {ctx['stats']['functions']}")
-    print(f"📚 Imports:            {ctx['stats']['imports']}")
-    print(f"🔗 Relationships:      {ctx['stats']['relationships']}")
+    print("---------------------------");
+    print(f"- 📁 Files scanned:      {ctx['stats']['files']}")
+    print(f"- 📦 Modules detected:   {ctx['stats']['modules']}")
+    print(f"- 🏷️ Classes detected:   {ctx['stats']['classes']}")
+    print(f"- 🔧 Functions detected: {ctx['stats']['functions']}")
+    print(f"- 📚 Imports:            {ctx['stats']['imports']}")
+    print(f"- 🔗 Relationships:      {ctx['stats']['relationships']}")
 
     print("\n✅ Done.")
 
