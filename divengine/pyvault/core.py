@@ -43,6 +43,8 @@ def _write_note(note_path, content_lines):
     os.makedirs(os.path.dirname(note_path), exist_ok=True)
     with open(note_path, "w", encoding="utf-8") as f:
         f.writelines(content_lines)
+    sys.stdout.write("\033[2K\r")
+    print(f"📝 Writing: {os.path.relpath(note_path)}", end="", flush=True)
 
 
 def extract_info(filepath, base_folder, ctx):
