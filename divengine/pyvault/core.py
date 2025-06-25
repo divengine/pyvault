@@ -44,13 +44,12 @@ def _write_note(note_path, content_lines):
     with open(note_path, "w", encoding="utf-8") as f:
         f.writelines(content_lines)
     sys.stdout.write("\033[2K\r")
-    print(f"📝 Writing: {os.path.relpath(note_path)}", end="", flush=True)
 
 
 def extract_info(filepath, base_folder, ctx):
     rel = os.path.relpath(filepath, base_folder)
     sys.stdout.write("\033[2K\r")
-    print(f"🔍 Scanning: {rel}", end="", flush=True)
+    print(f"🔍 Processing file: {rel}", end="", flush=True)
 
     with open(filepath, "r", encoding="utf-8", errors="ignore") as file:
         try:
