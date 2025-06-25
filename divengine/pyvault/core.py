@@ -34,7 +34,6 @@ from collections import defaultdict
 from datetime import datetime
 import sys
 
-
 def resolve_link(path_str):
     return f"[[{path_str.replace(os.sep, '/') }]]"
 
@@ -45,6 +44,28 @@ def _write_note(note_path, content_lines):
         f.writelines(content_lines)
     sys.stdout.write("\033[2K\r")
 
+def format_docstring(doc):
+    lines = doc.strip().split("\n")
+    formatted = []
+    table = []
+    for line in lines:
+        line = line.strip()
+        if line.startswith(":param") or line.startswith(":type") or line.startswith(":returns") or line.startswith(":rtype"):
+            parts = line.split(" ", 2)
+            if len(parts) == 3:
+                label, name, desc = parts
+                table.append((label.strip(':'), name, desc))
+        else:
+            formatted.append(line)
+
+    result = "\n".join(formatted)
+    if table:
+        result += "\n\n### Details:\n"
+        result += "| Tag | Name | Description |\n"
+        result += "|-----|------|-------------|\n"
+        for tag, name, desc in table:
+            result += f"| `{tag}` | `{name}` | {desc} |\n"
+    return result
 
 def extract_info(filepath, base_folder, ctx):
     rel = os.path.relpath(filepath, base_folder)
@@ -140,7 +161,9 @@ def write_function_note(name, args_obj, rel_path, ctx, full_path, doc):
     ]
     content += [f"- `{arg}`\n" for arg in args] or ["- None\n"]
     if doc:
-        content.append(f"\n## Docstring:\n\n{doc}\n")
+        content.append("\n## Docstring:\n\n")
+        content.append(format_docstring(doc))
+        content.append("\n")
     if full_path in ctx['uses_map']:
         content.append("\n## Uses:\n")
         content += [f"- {resolve_link(target)}\n" for target in ctx['uses_map'][full_path]]
