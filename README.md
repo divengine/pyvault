@@ -1,42 +1,67 @@
-# Divengine Python Vault
+# 🧠 Divengine Python Vault – PyVault
 
-**PyVault** is a Python-powered documentation generator that transforms any Python project into a structured [Obsidian](https://obsidian.md) vault. It extracts all classes, functions, and modules, maps their relationships, and builds a fully browsable knowledge graph of the codebase.
-![image](https://github.com/user-attachments/assets/38d9f3dd-e001-42e2-b69f-d33bfdae7343)
+**PyVault** is a Python-powered documentation generator that transforms any Python project into a structured [Obsidian](https://obsidian.md) vault.  
+
+It extracts all classes, functions, and modules, maps their relationships, and builds a fully browseable knowledge graph of the codebase.
+
+![PyVault Screenshot](https://github.com/user-attachments/assets/38d9f3dd-e001-42e2-b69f-d33bfdae7343)
 
 ---
 
-## 🧠 What it does
+## ✨ Features
 
-- Parses your Python project using the `ast` module
+- Parses your Python project using Python’s `ast` module
 - Extracts:
-  - 📦 Modules (each `.py` file)
+  - 📦 Modules (`.py` files)
   - 🧩 Functions and methods
   - 🏷️ Classes (including inheritance, methods, and properties)
   - 🔗 Function calls between elements (`uses`)
-- Organizes everything into Markdown files inside an Obsidian-ready vault
+- Generates Markdown files for all entities, with proper nesting
 - Preserves the original folder structure
-- Uses Obsidian `[[wiki-style links]]` for graph connections
+- Uses Obsidian-style `[[wiki links]]` to interconnect everything
 
-![image](https://github.com/user-attachments/assets/3577390b-f482-4854-9304-6e6aec358ef4)
+![Obsidian Graph Example](https://github.com/user-attachments/assets/3577390b-f482-4854-9304-6e6aec358ef4)
 
 ---
 
-## 🔧 How to use
+## 🔧 Usage
 
-1. Clone the repository:
+### 📦 Option 1: Clone and run
 
 ```bash
 git clone https://github.com/divengine/pyvault.git
+cd pyvault
+python pyvault.py ../your_project/ ../vault_output/
 ```
 
-2. Install Python ≥ 3.8
-  
-3. Run the generator:
+### 🐍 Option 2: Install via pip
 
 ```bash
-git clone https://github.com/psf/black.git
-cd pyvault
-python pyvault.py ../black/ ../vault-black/
+pip install divengine-pyvault
+pyvault ../your_project/ ../vault_output/
 ```
 
-The result will appear inside the obsidian_vault/ folder.
+### 🗂️ Output Example
+After running, the tool generates an Obsidian vault like this:
+
+```bash
+vault_output/
+├── module_a.md
+├── module_b/
+│   ├── imports.md
+│   └── MyClass/
+│       ├── method_one.md
+│       └── method_two.md
+```
+
+Each .md file includes:
+
+- File or object name
+- Location in the source project
+- Extracted arguments
+- Docstrings (if any)
+- Relationships (uses, inheritance, etc.)
+
+### 📄 License
+
+MIT License © Divengine Software Solutions
