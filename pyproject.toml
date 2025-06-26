@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "divengine-pyvault"
-version = "1.0.2"
+version = "1.0.3"
 description = "Divengine Python Vault – Generates Obsidian vaults from Python projects"
 authors = [
   { name = "Rafael Rodriguez Ramirez", email = "rafageist@divengine.com" }

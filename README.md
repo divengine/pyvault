@@ -1,3 +1,5 @@
+[![PyPI version](https://badge.fury.io/py/divengine-pyvault.svg)](https://pypi.org/project/divengine-pyvault/)
+
 # 🧠 Divengine Python Vault – PyVault
 
 **PyVault** is a Python-powered documentation generator that transforms any Python project into a structured [Obsidian](https://obsidian.md) vault.  

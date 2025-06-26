@@ -223,7 +223,7 @@ def scan_folder(folder, ctx):
 
 def main():
     print("=" * 60)
-    print("🧠 Divengine PyVault – Obsidian Vault Generator")
+    print("🧠 Divengine Python Vault – Generate Obsidian.md vault from Python project")
     print(f"📦 Version: 1.0.2")
     print(f"📅 Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 60)
@@ -261,18 +261,19 @@ def main():
 
     os.makedirs(ctx['VAULT_DIR'], exist_ok=True)
     scan_folder(args.project_path, ctx)
+    print("\n🔧 Finishing...")
     write_module_and_import_notes(ctx)
 
     print();
-    print("---------------------------");
-    print("\n📊 Scan summary:")
-    print("---------------------------");
+    print("\n📊 Summary:")
+    print("-----------------------------------------------");
     print(f"- 📁 Files scanned:      {ctx['stats']['files']}")
     print(f"- 📦 Modules detected:   {ctx['stats']['modules']}")
     print(f"- 🏷️ Classes detected:   {ctx['stats']['classes']}")
     print(f"- 🔧 Functions detected: {ctx['stats']['functions']}")
     print(f"- 📚 Imports:            {ctx['stats']['imports']}")
     print(f"- 🔗 Relationships:      {ctx['stats']['relationships']}")
+    print("-----------------------------------------------");
 
     print("\n✅ Done.")
 
