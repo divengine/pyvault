@@ -1,6 +1,7 @@
 # Divengine Python Vault
 
-[![PyPI version](https://badge.fury.io/py/divengine-pyvault.svg)](https://pypi.org/project/divengine-pyvault/?nocache=1)
+[![PyPI version](https://badge.fury.io/py/divengine-pyvault.svg?nocache=1)](https://pypi.org/project/divengine-pyvault/) [![Downloads](https://static.pepy.tech/badge/divengine-pyvault/week)](https://pepy.tech/project/divengine-pyvault) [![Downloads](https://static.pepy.tech/badge/divengine-pyvault)](https://pepy.tech/project/divengine-pyvault) [![MIT licensed](https://img.shields.io/badge/license-MIT-green.svg)](https://raw.githubusercontent.com/gabfl/vault/main/LICENSE)
+
 
 **pyvault** is a Python-powered documentation generator that transforms any Python project into a structured [Obsidian](https://obsidian.md) vault.  
 
