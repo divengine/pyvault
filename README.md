@@ -2,7 +2,7 @@
 
 # 🧠 Divengine Python Vault – PyVault
 
-**PyVault** is a Python-powered documentation generator that transforms any Python project into a structured [Obsidian](https://obsidian.md) vault.  
+**pyvault** is a Python-powered documentation generator that transforms any Python project into a structured [Obsidian](https://obsidian.md) vault.  
 
 It extracts all classes, functions, and modules, maps their relationships, and builds a fully browseable knowledge graph of the codebase.
 
@@ -33,17 +33,18 @@ It extracts all classes, functions, and modules, maps their relationships, and b
 ```bash
 git clone https://github.com/divengine/pyvault.git
 cd pyvault
-python pyvault.py ../your_project/ ../vault_output/
+python divengine/pyvault/core.py /your_project/ /vault_output/
 ```
 
 ### 🐍 Option 2: Install via pip
 
 ```bash
 pip install divengine-pyvault
-pyvault ../your_project/ ../vault_output/
+pyvault /your_project/ /vault_output/
 ```
 
 ### 🗂️ Output Example
+
 After running, the tool generates an Obsidian vault like this:
 
 ```bash
