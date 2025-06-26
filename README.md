@@ -24,8 +24,6 @@ It extracts all classes, functions, and modules, maps their relationships, and b
 
 ![Obsidian Graph Example](https://github.com/user-attachments/assets/3577390b-f482-4854-9304-6e6aec358ef4)
 
----
-
 ## Usage
 
 ### Option 1: Clone and run
