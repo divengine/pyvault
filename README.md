@@ -41,6 +41,12 @@ pip install divengine-pyvault
 pyvault /your_project/ /vault_output/
 ```
 
+To make sure you always get the latest version, use:
+
+```bash
+pip install --upgrade divengine-pyvault
+```
+
 ### Output Example
 
 After running, the tool generates an Obsidian vault like this:
