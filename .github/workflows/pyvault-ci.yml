@@ -1,0 +1,37 @@
+name: Test PyVault on real Python project
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-pyvault:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+
+      - name: Install pyvault from PyPI
+        run: pip install --upgrade divengine-pyvault
+
+      - name: Clone test project (e.g., typer)
+        run: |
+          git clone https://github.com/tiangolo/typer.git
+          ls typer
+
+      - name: Run pyvault on test project
+        run: |
+          pyvault ./typer ./vault_output
+          echo "Vault contents:"
+          ls -R vault_output
+
+      - name: Check if vault was generated
+        run: |
+          test -f vault_output/typer/core.md && echo "✅ Vault generated" || (echo "❌ Vault missing" && exit 1)
