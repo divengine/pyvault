@@ -1,6 +1,6 @@
-[![PyPI version](https://badge.fury.io/py/divengine-pyvault.svg)](https://pypi.org/project/divengine-pyvault/)
+# Divengine Python Vault
 
-# 🧠 Divengine Python Vault – PyVault
+[![PyPI version](https://badge.fury.io/py/divengine-pyvault.svg)](https://pypi.org/project/divengine-pyvault/)
 
 **pyvault** is a Python-powered documentation generator that transforms any Python project into a structured [Obsidian](https://obsidian.md) vault.  
 
@@ -10,7 +10,7 @@ It extracts all classes, functions, and modules, maps their relationships, and b
 
 ---
 
-## ✨ Features
+## Features
 
 - Parses your Python project using Python’s `ast` module
 - Extracts:
@@ -26,9 +26,9 @@ It extracts all classes, functions, and modules, maps their relationships, and b
 
 ---
 
-## 🔧 Usage
+## Usage
 
-### 📦 Option 1: Clone and run
+### Option 1: Clone and run
 
 ```bash
 git clone https://github.com/divengine/pyvault.git
@@ -36,14 +36,14 @@ cd pyvault
 python divengine/pyvault/core.py /your_project/ /vault_output/
 ```
 
-### 🐍 Option 2: Install via pip
+### Option 2: Install via pip
 
 ```bash
 pip install divengine-pyvault
 pyvault /your_project/ /vault_output/
 ```
 
-### 🗂️ Output Example
+### Output Example
 
 After running, the tool generates an Obsidian vault like this:
 
@@ -65,6 +65,6 @@ Each .md file includes:
 - Docstrings (if any)
 - Relationships (uses, inheritance, etc.)
 
-### 📄 License
+### License
 
 MIT License © Divengine Software Solutions
