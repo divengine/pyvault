@@ -1,10 +1,14 @@
-# Divengine Python Vault
+# Divengine PyVault
 
-[![PyPI version](https://badge.fury.io/py/divengine-pyvault.svg?nocache=1)](https://pypi.org/project/divengine-pyvault/) [![Downloads](https://static.pepy.tech/badge/divengine-pyvault/week)](https://pepy.tech/project/divengine-pyvault) [![Downloads](https://static.pepy.tech/badge/divengine-pyvault)](https://pepy.tech/project/divengine-pyvault) [![MIT licensed](https://img.shields.io/badge/license-MIT-green.svg)](https://raw.githubusercontent.com/gabfl/vault/main/LICENSE)
+[![PyPI version](https://badge.fury.io/py/divengine-pyvault.svg?nocache=1)](https://pypi.org/project/divengine-pyvault/)
+[![Downloads](https://static.pepy.tech/badge/divengine-pyvault/week)](https://pepy.tech/project/divengine-pyvault)
+[![Downloads](https://static.pepy.tech/badge/divengine-pyvault)](https://pepy.tech/project/divengine-pyvault)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-green.svg)](https://raw.githubusercontent.com/divengine/pyvault/main/LICENSE)
 
-**pyvault** is a Python-powered documentation generator that transforms any Python project into a structured [Obsidian](https://obsidian.md) vault.  
-
-It extracts all classes, functions, and modules, maps their relationships, and builds a fully browseable knowledge graph of the codebase.
+PyVault is a Python documentation generator that transforms a Python codebase
+into an Obsidian vault. It parses the AST, extracts modules, classes, functions,
+imports, and call relationships, and writes a navigable knowledge graph using
+Obsidian wiki links.
 
 ![PyVault Screenshot](https://github.com/user-attachments/assets/38d9f3dd-e001-42e2-b69f-d33bfdae7343)
 
@@ -12,63 +16,84 @@ It extracts all classes, functions, and modules, maps their relationships, and b
 
 ## Features
 
-- Parses your Python project using Python’s `ast` module
-- Extracts:
-  - 📦 Modules (`.py` files)
-  - 🧩 Functions and methods
-  - 🏷️ Classes (including inheritance, methods, and properties)
-  - 🔗 Function calls between elements (`uses`)
-- Generates Markdown files for all entities, with proper nesting
-- Preserves the original folder structure
-- Uses Obsidian-style `[[wiki links]]` to interconnect everything
+- Parses Python projects with the built-in `ast` module (no runtime execution).
+- Extracts modules, classes, functions, methods, and attributes.
+- Tracks inheritance, imports, and `uses` relationships between elements.
+- Generates Markdown notes with Obsidian-style `[[wiki links]]`.
+- Preserves the original folder structure.
+- Emits tags like `#module`, `#class`, `#function`, `#method`, and `#imports`.
 
 ![Obsidian Graph Example](https://github.com/user-attachments/assets/3577390b-f482-4854-9304-6e6aec358ef4)
 
-## Usage
+## Requirements
 
-### Option 1: Clone and run
+- Python 3.9 or higher
 
-```bash
-git clone https://github.com/divengine/pyvault.git
-cd pyvault
-python divengine/pyvault/core.py /your_project/ /vault_output/
-```
-
-### Option 2: Install via pip
+## Install
 
 ```bash
 pip install divengine-pyvault
-pyvault /your_project/ /vault_output/
 ```
 
-To make sure you always get the latest version, use:
+Upgrade when needed:
 
 ```bash
 pip install --upgrade divengine-pyvault
 ```
 
-### Output Example
-
-After running, the tool generates an Obsidian vault like this:
+## Usage
 
 ```bash
-vault_output/
-├── module_a.md
-├── module_b/
-│   ├── imports.md
-│   └── MyClass/
-│       ├── method_one.md
-│       └── method_two.md
+pyvault /path/to/project /path/to/vault_output
 ```
 
-Each .md file includes:
+From source:
 
-- File or object name
-- Location in the source project
-- Extracted arguments
+```bash
+git clone https://github.com/divengine/pyvault.git
+cd pyvault
+python divengine/pyvault/core.py /path/to/project /path/to/vault_output
+```
+
+## Output structure
+
+Example layout:
+
+```text
+vault_output/
+  module_a.md
+  package_b/
+    imports.md
+    MyClass/
+      method_one.md
+      method_two.md
+```
+
+Each note includes:
+
+- Source file location
 - Docstrings (if any)
+- Arguments and properties
 - Relationships (uses, inheritance, etc.)
 
-### License
+## Obsidian workflow
 
-MIT License © Divengine Software Solutions
+1) Install Obsidian: https://obsidian.md/download  
+2) Open the generated output folder as a vault.  
+3) Use Graph view to explore module and class relationships.
+
+Recommended plugins:
+
+- Graph Analysis
+- Backlinks / Outgoing
+- Dataview (optional)
+
+## Tips
+
+- Add docstrings to enrich the generated notes.
+- Use Obsidian tags to filter `#class`, `#function`, and `#module` entries.
+- Keep your output vault inside a separate folder to avoid mixing with code.
+
+## License
+
+MIT License. Copyright (c) Divengine Software Solutions.
